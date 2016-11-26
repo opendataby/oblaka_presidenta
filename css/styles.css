@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+main h1 {
+    margin-bottom: 5px;
+}
+#caption p {
+    margin: 0 auto;
+    padding: 0;
+}
+#event_stream li {
+	list-style: none;
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-style: dashed;
+	
+}
+
+.active {
+	color: #EF6867;
+}
+header, footer {
+    background: #2A2F4E;
+}
+main {
+    margin-left: 3em;
+    width: 80%;
+}
+footer {
+    margin-top: 1em;
+}
+footer p {
+    padding: 1em 2em;
+    font-size: .8em;
+    color: white;
+}
+footer a {
+    color: white;
+}
