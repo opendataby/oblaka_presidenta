@@ -1,6 +1,5 @@
-var color = d3.scale.linear()
-            .domain([0,1,2,3,4,5,6,10,15,20,100])
-            .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+var color = d3.scale.ordinal()
+            .range(['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00']);
 
 var font_scale = d3.scale.linear()
 					.range([6, 40]);
@@ -30,11 +29,13 @@ function draw(words) {
 
 function main(data) {
 	font_scale.domain([0, d3.max(data, function(d) {return d.size; })]);
+	color.domain([d3.min(data, function(d) {return d.size; }), d3.max(data, function(d) {return d.size; })]);
     d3.layout.cloud().size([800, 300])
             .words(data)
             .rotate(0)
             .fontSize(function(d) { return font_scale(d.size); })
-            .padding(2)
+            .padding(1)
+            .text(function(d) { return d.text; })
             .on("end", draw)
             .start();
 }
