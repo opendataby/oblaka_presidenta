@@ -1,6 +1,6 @@
 ## Словарные облака из выступлений Александра Лукашенко
 
-Демонстрационная версия - https://opendataby.github.io/oblako_presidenta/
+Демонстрационная версия - https://opendataby.github.io/oblaka_presidenta/
 
 Исходные данные находятся в папке lab.
 
