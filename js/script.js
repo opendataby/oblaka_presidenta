@@ -3,12 +3,15 @@ var fill = d3.scale.category10();
 var font_scale = d3.scale.linear()
 					.range([10, 60]);
 
+var width = 850,
+	height = 350;
+
 var svg = d3.select("#word_cloud").append("svg")
-                .attr("width", 850)
-                .attr("height", 350)
+                .attr("width", width)
+                .attr("height", height)
                 .attr("class", "wordcloud")
                 .append("g")
-                .attr("transform", "translate(320,200)");
+                .attr("transform", "translate(" + 380 + ", " + height / 2 + ")");
 
 function draw(words) {
 	var words = svg.selectAll("text")
@@ -19,6 +22,7 @@ function draw(words) {
                 .attr("transform", function(d) {
                     return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
                 })
+                .attr("text-anchor", "middle")
                 .text(function(d) { return d.text; });
 	words.exit().remove()
     }
@@ -43,5 +47,4 @@ d3.selectAll("li").on("click", function() {
 	clicked_item.classed("active", true)
 	var data_link = clicked_item.attr("title");
 	d3.json(data_link, main);
-
 	});
